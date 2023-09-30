@@ -4,7 +4,7 @@ namespace Infrastructure;
 
 public static class InfrastructureUtilityService
 {
-    private static readonly Uri Uri = new Uri(Environment.GetEnvironmentVariable("pgconn")!);
+    private static readonly Uri Uri = new Uri(Environment.GetEnvironmentVariable("POSTGRESQLCONNSTR_")!);
    
     
     public static readonly string ProperlyFormattedConnectionString =
