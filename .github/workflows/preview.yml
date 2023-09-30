@@ -25,20 +25,20 @@ jobs:
           dotnet-version: '7.0.x'
 
       - name: Restore
-        run: dotnet restore ./factory-backend.csproj
+        run: dotnet restore ./factory-backend.sln
         
       - name: Setup PostgresSQL
         run: export pgconn=${{ env.PG_CONN }}
 
       - name: Build
-        run: dotnet build ./factory-backend.csproj --configuration Release --no-restore
+        run: dotnet build ./factory-backend.sln --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test ./factory-backend.csproj
+        run: dotnet test ./factory-backend.sln
 
   Run:
     needs: [Test]
     runs-on: ubuntu-latest
     steps:
       - name: Start API
-        run: dotnet run --project ./factory-backend.csproj
+        run: dotnet run --project ./factory-backend.sln
