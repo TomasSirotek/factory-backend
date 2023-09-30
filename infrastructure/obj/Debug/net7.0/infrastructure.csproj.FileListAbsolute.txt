@@ -1,0 +1,12 @@
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/bin/Debug/net7.0/infrastructure.deps.json
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/bin/Debug/net7.0/infrastructure.dll
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/bin/Debug/net7.0/infrastructure.pdb
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/infrastructure.csproj.AssemblyReference.cache
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/infrastructure.AssemblyInfoInputs.cache
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/infrastructure.AssemblyInfo.cs
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/infrastructure.csproj.CoreCompileInputs.cache
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/infrastructure.dll
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/refint/infrastructure.dll
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/infrastructure.pdb
+/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/Debug/net7.0/ref/infrastructure.dll

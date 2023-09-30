@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "iDYn0eM5fvD8iCevOqnV/DfLClivp10C8yVBCJP6dGKaf97EQS4/x9Bg0vBbqtqfgu2VfNOuwRVWCS8TFJ+o7g==",
+  "success": true,
+  "projectFilePath": "/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/infrastructure.csproj",
+  "expectedPackageFiles": [
+    "/Users/simko/.nuget/packages/dapper/2.0.151/dapper.2.0.151.nupkg.sha512",
+    "/Users/simko/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "/Users/simko/.nuget/packages/npgsql/7.0.6/npgsql.7.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

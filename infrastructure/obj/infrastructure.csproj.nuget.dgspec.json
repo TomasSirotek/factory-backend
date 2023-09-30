@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/infrastructure.csproj": {}
+  },
+  "projects": {
+    "/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/infrastructure.csproj",
+        "projectName": "infrastructure",
+        "projectPath": "/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/infrastructure.csproj",
+        "packagesPath": "/Users/simko/.nuget/packages/",
+        "outputPath": "/Users/simko/Desktop/backend-factory/factory-backend/infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/simko/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.151, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100-preview.5.23303.2/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
