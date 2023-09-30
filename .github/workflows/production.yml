@@ -6,6 +6,11 @@ on:
     branches:
     - main
   
+.env:
+    AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}
+    AZURE_WEBAPP_PACKAGE_PATH: ${{ secrets.AZURE_WEBAPP_PACKAGE_PATH }}
+    DOTNET_VERSION: ${{ secrets.DOTNET_VERSION }}
+    
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -25,5 +30,11 @@ jobs:
         run: dotnet build ./factory-backend.sln --configuration Release --no-restore
         
       - name: Publish
-        run: dotnet publish ./factory-backend.sln --configuration Release --no-build
+        run: dotnet publish ./factory-backend.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
+      - name: Deployment 
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package:  ${{ secrets.AZURE_WEBAPP_PACKAGE_PATH }}
