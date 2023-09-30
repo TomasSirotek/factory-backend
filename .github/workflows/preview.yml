@@ -1,0 +1,44 @@
+name: Test and run 🚀
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - development
+  pull_request:
+    branches:
+    - development
+  
+env:
+    PG_CONN: ${{ secrets.PG_CONN }}
+    
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore
+        run: dotnet restore ./factory-backend.csproj
+        
+      - name: Setup PostgresSQL
+        run: export pgconn=${{ env.PG_CONN }}
+
+      - name: Build
+        run: dotnet build ./factory-backend.csproj --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test ./factory-backend.csproj
+
+  Run:
+    needs: [Test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start API
+        run: dotnet run --project ./factory-backend.csproj
