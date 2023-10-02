@@ -1,6 +1,9 @@
-namespace Service.Service.Interface;
+using Infrastructure.QueryModel;
 
-public interface IOrderService
+namespace Service.Service.Interface
 {
-    
+    public interface IOrderService
+    {
+        Task<IEnumerable<OrderDashboardQuery>> GetDashboardSalesDataAsync();
+    }
 }

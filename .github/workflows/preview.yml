@@ -13,25 +13,36 @@ env:
     PG_CONN: ${{ secrets.PG_CONN }}
     
 jobs:
-  Test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '7.0.x'
-
-      - name: Restore
-        run: dotnet restore ./factory-backend.sln
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-dotnet@v3
+          with:
+            dotnet-version: '7.0.x'
+        - run: dotnet build
+        - run: pwsh bin/Debug/net7.0/playwright.ps1 install --with-deps
+        - run: dotnet test
+          
+          
+      Deploy-Preview:
+        needs: [ test ]
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
         
-      - name: Setup PostgresSQL
-        run: export pgconn=${{ env.PG_CONN }}
+          - name: Setup .NET
+            uses: actions/setup-dotnet@v3
+            with:
+              dotnet-version: '7.0.x'
 
-      - name: Build
-        run: dotnet build ./factory-backend.sln --configuration Release --no-restore
+          - name: Restore
+            run: dotnet restore ./factory-backend.sln
 
-      - name: Test
-        run: dotnet test ./factory-backend.sln
+          - name: Setup PostgresSQL
+            run: export pgconn=${{ env.PG_CONN }}
+
+          - name: Build
+            run: dotnet build ./factory-backend.sln --configuration Release --no-restore
+
+          
