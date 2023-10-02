@@ -24,7 +24,6 @@ jobs:
         - run: pwsh bin/Debug/net7.0/playwright.ps1 install --with-deps
         - run: dotnet test
           
-          
       Deploy-Preview:
         needs: [ test ]
         runs-on: ubuntu-latest
