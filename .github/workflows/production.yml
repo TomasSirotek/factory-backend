@@ -43,3 +43,5 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package:  ${{ secrets.AZURE_WEBAPP_PACKAGE_PATH }}
+          env: |
+            POSTGRESQLCONNSTR_=${{ secrets.PG_CONN }}
