@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace api.Dto.Box;
 
-public class PutBoxDto
+public class PostBoxDto
 {
     [NotNull]
     [Required]
@@ -21,12 +21,12 @@ public class PutBoxDto
     public string? Image { get; set; }
     
     [NotNull]
-    [Required(ErrorMessage = "Status is required")]
+    [Required(ErrorMessage = "Must be")]
     [RegularExpression("^(Red|Orange|White|Black)$")]
     public string? Color { get; set; }
     
     [NotNull]
-    [Required(ErrorMessage = "Status is required")]
+    [Required(ErrorMessage = "Must be")]
     [RegularExpression("^(New|Damaged|Old)$")]
     public string? Status { get; set; } 
     

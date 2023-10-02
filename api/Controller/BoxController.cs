@@ -40,6 +40,27 @@ public class BoxController : ControllerBase
     }
     #endregion
 
+    #region POST
+    // It should be possible to create a new article
+    [HttpPost]
+    [ValidateModelFilter]
+    [Route("/api/boxes")]
+    public async Task<ResponseDto> CreateBoxAsync([FromBody] PostBoxDto boxRequest)
+    {
+        return _response.CreateResponse(
+            HttpContext, StatusCodeType.Created, 
+            $"Successfully create box with title: {boxRequest.Title}",
+            await _boxService.CreateBoxAsync(
+                boxRequest.Title,
+                boxRequest.Type,
+                boxRequest.Image,
+                boxRequest.Status,
+                boxRequest.Price,
+                boxRequest.Color,
+                boxRequest.Description));
+    }
+    #endregion
+    
     #region PUT
     [HttpPut]
     [ValidateModelFilter]
