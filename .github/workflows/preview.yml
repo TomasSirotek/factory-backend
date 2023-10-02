@@ -11,20 +11,7 @@ on:
   
 env:
     PG_CONN: ${{ secrets.PG_CONN }}
-    
-name: Test and run 🚀
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - development
-  pull_request:
-    branches:
-      - development
-
-env:
-  PG_CONN: ${{ secrets.PG_CONN }}
 
 jobs:
   test:
