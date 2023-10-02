@@ -15,10 +15,12 @@ public static class DiConfig
     {
         services.AddSingleton<ResponseHelper>();
         services.AddTransient<IBoxService, BoxService>();
+        services.AddTransient<IOrderService, OrderService>();
     }
     
     public static void RegisterRepositories(this IServiceCollection services)
     {
         services.AddTransient<IBoxRepository, BoxRepository>();
+        services.AddTransient<IOrderRepository, OrderRepository>();
     }
 }

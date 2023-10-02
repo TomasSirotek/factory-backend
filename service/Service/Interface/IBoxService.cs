@@ -6,8 +6,8 @@ namespace Service.Service.Interface;
 public interface IBoxService
 {
     Task<IEnumerable<BoxModelQuery>> GetAllBoxesAsync();
-    Task<Box> GetArticleById(int articleId);
-    Task<Box> CreateArticle(string articleRequestHeadline, string articleRequestAuthor, string articleRequestArticleImgUrl, string articleRequestBody);
-    Task<Box> UpdateArticle(int articleDtoArticleId, string articleDtoHeadline, string articleDtoAuthor, string articleDtoArticleImgUrl, string articleDtoBody);
-    Task<bool> DeleteArticleById(int articleId);
+    Task<bool> DeleteBoxByIdAsync(int id);
+    Task<Box> GetBoxByIdAsync(int boxId);
+    Task<Box> UpdateBoxByIdAsync(int id, string title, string type, string image, string status, decimal price,string color, string description);
+    Task<Box> CreateBoxAsync(string title, string type, string image, string status, decimal price, string color, string description);
 }

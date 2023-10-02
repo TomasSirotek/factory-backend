@@ -16,28 +16,30 @@ public class BoxService : IBoxService
     
     public async Task<IEnumerable<BoxModelQuery>> GetAllBoxesAsync()
     {
-        return await _boxRepository.GetAllArticlesForFeed();
+        return await _boxRepository.GetAllBoxesAsync();
+    }
+    
+    public async Task<Box> GetBoxByIdAsync(int boxId)
+    {
+        return await _boxRepository.GetBoxByIdAsync(boxId);
     }
 
-    public Task<Box> GetArticleById(int articleId)
+    public async Task<Box> UpdateBoxByIdAsync(int id, string title, string type, string image, string status, decimal price, string color,
+        string description)
     {
-        throw new NotImplementedException();
+        return await _boxRepository.UpdateBoxByIdAsync(id, title, type, image, status, price, color, description);
     }
 
-    public Task<Box> CreateArticle(string articleRequestHeadline, string articleRequestAuthor, string articleRequestArticleImgUrl,
-        string articleRequestBody)
+    public async Task<Box> CreateBoxAsync(string title, string type, string image, string status, decimal price, string color,
+        string description)
     {
-        throw new NotImplementedException();
+        return await _boxRepository.CreateBoxAsync(title, type, image, status, price, color, description);
     }
 
-    public Task<Box> UpdateArticle(int articleDtoArticleId, string articleDtoHeadline, string articleDtoAuthor,
-        string articleDtoArticleImgUrl, string articleDtoBody)
+    public async Task<bool> DeleteBoxByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _boxRepository.DeleteBoxByIdAsync(id);
     }
 
-    public Task<bool> DeleteArticleById(int articleId)
-    {
-        throw new NotImplementedException();
-    }
+   
 }

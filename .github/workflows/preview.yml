@@ -11,27 +11,45 @@ on:
   
 env:
     PG_CONN: ${{ secrets.PG_CONN }}
-    
-jobs:
-  Test:
-    runs-on: ubuntu-latest
 
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
 
-      - name: Restore
-        run: dotnet restore ./factory-backend.sln
-        
-      - name: Setup PostgresSQL
-        run: export pgconn=${{ env.PG_CONN }}
+      - name: Build and Test
+        run: |
+          dotnet build
+          dotnet test
 
-      - name: Build
-        run: dotnet build ./factory-backend.sln --configuration Release --no-restore
+  Deploy-Preview:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - name: Test
-        run: dotnet test ./factory-backend.sln
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Set Up PostgreSQL
+        run: |
+          export pgconn=${{ secrets.PG_CONN }}
+
+      - name: Build and Deploy
+        run: dotnet build --configuration Release --no-restore
+
+

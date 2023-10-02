@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[7.0.8, )"
             },
+            "Microsoft.Playwright.NUnit": {
+              "target": "Package",
+              "version": "[1.38.0, )"
+            },
             "Npgsql.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.4, )"
