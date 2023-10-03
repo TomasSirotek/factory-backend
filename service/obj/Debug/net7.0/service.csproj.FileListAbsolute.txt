@@ -13,3 +13,4 @@
 /Users/simko/Desktop/backend-factory/factory-backend/service/obj/Debug/net7.0/refint/service.dll
 /Users/simko/Desktop/backend-factory/factory-backend/service/obj/Debug/net7.0/service.pdb
 /Users/simko/Desktop/backend-factory/factory-backend/service/obj/Debug/net7.0/ref/service.dll
+/Users/simko/Desktop/backend-factory/factory-backend/service/obj/Debug/net7.0/service.sourcelink.json

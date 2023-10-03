@@ -5,9 +5,9 @@ namespace Infrastructure.Repository.Interface;
 
 public interface IBoxRepository
 {
-    Task<IEnumerable<BoxModelQuery>> GetAllArticlesForFeed();
-    Task<Box> GetArticleById(int articleId);
-    Task<Box> CreateArticle(string headline, string author, string articleImgUrl, string articleBody);
-    Task<Box> UpdateArticle(int articleDtoArticleId, string articleDtoHeadline, string articleDtoAuthor, string articleDtoArticleImgUrl, string articleDtoBody);
-    Task<bool> DeleteArticleById(int articleId);
+    Task<IEnumerable<BoxModelQuery>> GetAllBoxesAsync();
+    Task<bool> DeleteBoxByIdAsync(int id);
+    Task<Box> GetBoxByIdAsync(int boxId);
+    Task<Box> UpdateBoxByIdAsync(int id, string title, string type, string image, string status, decimal price, string color, string description);
+    Task<Box> CreateBoxAsync(string title, string type, string image, string status, decimal price, string color, string description);
 }

@@ -1,0 +1,55 @@
+name: Test and run 🚀
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - development
+  pull_request:
+    branches:
+    - development
+  
+env:
+    PG_CONN: ${{ secrets.PG_CONN }}
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Build and Test
+        run: |
+          dotnet build
+          dotnet test
+
+  Deploy-Preview:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Set Up PostgreSQL
+        run: |
+          export pgconn=${{ secrets.PG_CONN }}
+
+      - name: Build and Deploy
+        run: dotnet build --configuration Release --no-restore
+
+
