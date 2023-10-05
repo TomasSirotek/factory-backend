@@ -49,8 +49,7 @@ public static class ApiConfig
 
         app.UseMiddleware<GlobalExceptionMiddleware>();
         app.UseMiddleware<RouteCheck>();
-        app.UseHttpsRedirection();
-        
+
         app.MapControllers();
     }
 }
