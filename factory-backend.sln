@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "infrastructure", "infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "service", "service\service.csproj", "{A50E0186-1DB0-4ADD-8DB8-64617FA6489E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "playwright-tests", "playwright-tests\playwright-tests.csproj", "{F2B7F408-0CD0-4DA3-904D-59E1C993C1D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{A50E0186-1DB0-4ADD-8DB8-64617FA6489E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A50E0186-1DB0-4ADD-8DB8-64617FA6489E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A50E0186-1DB0-4ADD-8DB8-64617FA6489E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2B7F408-0CD0-4DA3-904D-59E1C993C1D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2B7F408-0CD0-4DA3-904D-59E1C993C1D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2B7F408-0CD0-4DA3-904D-59E1C993C1D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2B7F408-0CD0-4DA3-904D-59E1C993C1D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

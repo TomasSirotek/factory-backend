@@ -29,7 +29,6 @@ public class BoxController : ControllerBase
     }
     #endregion
     
-    #region GET
     [HttpGet]  
     [Route("/api/boxes/{boxId}")]
     public async Task<ResponseDto> GetAllBoxByIdAsync([FromRoute] int boxId)
@@ -38,7 +37,6 @@ public class BoxController : ControllerBase
             await _boxService.GetBoxByIdAsync(boxId);
         return _response.CreateResponse(HttpContext, StatusCodeType.Success, "Successfully fetched box", articles);
     }
-    #endregion
 
     #region POST
     // It should be possible to create a new article
