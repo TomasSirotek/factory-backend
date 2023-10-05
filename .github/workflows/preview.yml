@@ -24,40 +24,17 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
-
-      - name: Export variable
-        run: |
-          export pgconn=${{ secrets.PG_CONN }}
            
-      - name: Start API Server
+      - name: Start API Server and test
         run: |
-            cd api
-            nohup dotnet run > api.log 2>&1 &
-            sleep 10  # Adjust the duration as needed
-
-      - name: Delay Before Tests
-        run: sleep 30  # Adjust the duration as needed
-
-      - name: Check API Availability
-        run: |
-                until curl -sSf http://localhost:5000 -o /dev/null; do
-                  sleep 5
-                done
-
-      - name: Install Dependencies
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build
-
-      - name: Test with the dotnet CLI
-        run: dotnet test
-
-      - name: Stop API Server
-        run: |
-                pkill -f "dotnet run"  # Stop the API server
-     
-             
+          cd scripts
+          chmod +x ./wait-for-it.sh
+          dotnet run --project=../api/ &
+          API_PID=$!
+          ./wait-for-it.sh -t 60 localhost:5000 -- && dotnet test
+          kill $API_PID
+        env:
+          pgconn: ${{ secrets.PG_CONN }}
       
   Deploy-Preview:
     needs: [test]
