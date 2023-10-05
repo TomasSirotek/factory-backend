@@ -29,10 +29,12 @@ jobs:
         run: |
           export pgconn=${{ secrets.PG_CONN }}
           cd api
-          dotnet run    
+          dotnet run &
+          sleep 10   
           
       - name: Build and Test
         run: |
+          until curl -sSf http://localhost:5000 -o /dev/null; do sleep 5; done
           dotnet build
           dotnet test
              
