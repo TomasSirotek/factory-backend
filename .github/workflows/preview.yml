@@ -29,18 +29,15 @@ jobs:
         run: |
           export pgconn=${{ secrets.PG_CONN }}
           cd api
-          nohup dotnet run > api.log 2>&1 &  
+          dotnet run 
           sleep 10
           
       - name: Delay Before Tests
         run: sleep 30
           
-      - name: Check API Availability
+      - name: Test API Server
         run: |
-            until curl -sSf http://localhost:5000 -o /dev/null || [ $RETRY_COUNT -eq 10 ]; do
-              sleep 5
-              RETRY_COUNT=$((RETRY_COUNT+1))
-            done
+           dotnet test
           
       - name: Build and Test
         run: |
