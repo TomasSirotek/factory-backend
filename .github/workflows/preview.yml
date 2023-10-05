@@ -25,24 +25,21 @@ jobs:
         with:
           dotnet-version: '7.0.x'
 
-      - name: Start API Server
+      - name: Export variable
         run: |
           export pgconn=${{ secrets.PG_CONN }}
-          cd api
-          dotnet run 
-          sleep 10
-          
-      - name: Delay Before Tests
-        run: sleep 30
-          
-      - name: Test API Server
-        run: |
-           dotnet test
-          
-      - name: Build and Test
-        run: |
-          dotnet build
-          dotnet test
+           
+      - uses: actions/checkout@v4
+   
+      - name: Install dependencies
+        run: dotnet restore
+  
+      - name: Build
+        run: dotnet build
+        
+      - name: Test with the dotnet CLI
+        run: dotnet test   
+     
              
       
   Deploy-Preview:
