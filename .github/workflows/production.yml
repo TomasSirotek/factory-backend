@@ -28,6 +28,7 @@ jobs:
       - name: Build
         run: dotnet build ./factory-backend.sln --configuration Release --no-restore
         
+        
       - name: Publish
         run: dotnet publish ./factory-backend.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
