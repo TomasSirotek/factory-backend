@@ -43,8 +43,6 @@
 /Users/simko/Desktop/backend-factory/factory-backend/api/obj/Debug/net7.0/api.genruntimeconfig.cache
 /Users/simko/Desktop/backend-factory/factory-backend/api/obj/Debug/net7.0/ref/api.dll
 /Users/simko/Desktop/backend-factory/factory-backend/api/obj/Debug/net7.0/api.sourcelink.json
-/Users/simko/Desktop/backend-factory/factory-backend/api/bin/Debug/net7.0/PlaywrightTests/obj/PlaywrightTests.csproj.nuget.dgspec.json
-/Users/simko/Desktop/backend-factory/factory-backend/api/bin/Debug/net7.0/PlaywrightTests/obj/project.assets.json
 /Users/simko/Desktop/backend-factory/factory-backend/api/bin/Debug/net7.0/.playwright/node/darwin-arm64/node
 /Users/simko/Desktop/backend-factory/factory-backend/api/bin/Debug/net7.0/.playwright/node/darwin-arm64/playwright.sh
 /Users/simko/Desktop/backend-factory/factory-backend/api/bin/Debug/net7.0/.playwright/node/LICENSE
