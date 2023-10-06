@@ -22,12 +22,12 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
-          
       - name: Restore
         run: dotnet restore ./factory-backend.sln
         
       - name: Build
         run: dotnet build ./factory-backend.sln --configuration Release --no-restore
+        
         
       - name: Publish
         run: dotnet publish ./factory-backend.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
