@@ -8,7 +8,7 @@ on:
   
 env:
     AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}
-    AZURE_WEBAPP_PACKAGE_PATH: ${{ secrets.AZURE_WEBAPP_PACKAGE_PATH }}
+    AZURE_WEBAPP_PACKAGE_PATH: "./publish"
     DOTNET_VERSION: ${{ secrets.DOTNET_VERSION }}
     
 jobs:
