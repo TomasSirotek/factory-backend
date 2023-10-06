@@ -9,7 +9,6 @@ public static class ApiConfig
     public static void AddApiConfiguration(this IServiceCollection services, IWebHostEnvironment env)
     {
         services.AddControllers();
-            
         services.AddCors(options =>
         {
             options.AddPolicy("AllowOrigin",
@@ -48,6 +47,7 @@ public static class ApiConfig
         });
 
         app.UseMiddleware<GlobalExceptionMiddleware>();
+        app.UseHttpsRedirection();
         app.UseMiddleware<RouteCheck>();
 
         app.MapControllers();
